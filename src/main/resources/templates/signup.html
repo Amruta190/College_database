@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>College</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css" />
+<!-- Default theme -->
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css" />
+<!-- Semantic UI theme -->
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css" />
+<script
+	src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script>
+	function saveUserInformation() {
+		if($("#firstName").val() != '' || $("#firstName").val() != '' || $("#age").val() != '' || $("#contactId").val() != '' || $("#password").val() != '' || $("#emailId").val() != '' )
+		{
+			var inputPayload = {
+				"firstName" : $("#firstName").val(),
+				"lastName" : $("#lastName").val(),
+				"age" : $("#age").val(),
+				"contact" : $("#contactId").val(),
+				"password" : $("#password").val(),
+				"email" : $("#emailId").val()
+			}
+			var inputPayloadString = JSON.stringify(inputPayload);
+			jQuery.ajax({
+				type : 'POST',
+				cache : true,
+				async : false,
+				contentType : 'application/json',
+				dataType : 'json',
+				url : location.origin + "/saveUserInfo",
+				data : inputPayloadString,
+				success : function(data) {
+					clearAllFormData();
+					window.location.assign(location.origin + "/signupCompletion")
+				},error : function(data) {
+					alertify.error(data.responseJSON.message);
+				}
+			});
+		}
+	}
+
+	function clearAllFormData() {
+		$("#firstName").val("");
+		$("#lastName").val("");
+		$("#age").val("");
+		$("#contactId").val("");
+		$("#password").val("");
+		$("#emailId").val("");
+	}
+	
+	/* $(document).ready(function(){
+		$('#button').click(function(e){
+			e.preventDefault();
+		});
+	}); */
+	</script>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Register Account</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap py-5">
+		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/bg.jpg);"></div>
+		      	<h3 class="text-center mb-0">Welcome</h3>
+		      	<p class="text-center">Sign up by entering the information below</p>
+						<form action="#" class="login-form">
+		      		<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center" data-validate="First Name is requred"><span class="fa fa-user"></span></div>
+		      			<input type="text" class="form-control" placeholder="First Name" id="firstName" required>
+		      		</div>
+	            <div class="form-group">
+	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+	              <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+	            </div>
+	            <div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center" data-validate="Age is requred"><span class="fa fa-user"></span></div>
+		      			<input type="text" class="form-control" placeholder="Age" id="age" required>
+		      		</div>
+	            <div class="form-group">
+	            	<div class="icon d-flex align-items-center justify-content-center" data-validate="Contact is requred"><span class="fa fa-lock"></span></div>
+	              <input type="text" class="form-control" placeholder="Contact" id="contactId" required>
+	            </div>
+	            <div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center" data-validate="Email is requred"><span class="fa fa-user"></span></div>
+		      			<input type="email" class="form-control" placeholder="Email" id="emailId" required>
+		      		</div>
+	            <div class="form-group">
+	            	<div class="icon d-flex align-items-center justify-content-center" data-validate="Password is requred"><span class="fa fa-lock"></span></div>
+	              <input type="password" class="form-control" placeholder="Password" id="password" required>
+	            </div>
+	            
+	            <div class="form-group">
+	            	<button class="btn form-control btn-primary rounded submit px-3" onclick="saveUserInformation()">Register</button>
+	            </div>
+	          </form>
+	          <div class="w-100 text-center mt-4 text">
+	          	<p class="mb-0">Already have an account?</p>
+		          <a href="/">Sign In</a>
+	          </div>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+
