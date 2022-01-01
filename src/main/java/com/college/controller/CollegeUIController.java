@@ -1,4 +1,4 @@
-package com.College.controller;
+package com.college.controller;
 
 import java.util.Optional;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.College.entity.User;
-import com.College.repo.UserRepo;
+import com.college.entity.User;
+import com.college.repo.UserRepo;
 
 @Controller
 public class CollegeUIController {
@@ -66,6 +66,10 @@ public class CollegeUIController {
 			user1.setIsActive(true);
 			user1.setToken(null);
 			userRepo.save(user1);
+//			if (userRepo.count()==0)
+//			{
+//				user1.setAdmin(true);
+//			}
 			return "success";
 		}
 		return "notFound";

@@ -1,14 +1,315 @@
 <!DOCTYPE html>
 <html>
+<!--<head>-->
+<!--    <meta charset="ISO-8859-1">-->
+<!--    <title>Insert title here</title>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--</head>-->
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+    <script
+            src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+        body {
+            background: #eeeeee;
+            font-family: 'Varela Round', sans-serif;
+        }
+        .navbar {
+            color: #fff;
+            background: #926dde !important;
+            padding: 5px 16px;
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 0 4px rgba(0,0,0,.1);
+        }
+        .navbar img {
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            margin-right: 10px;
+        }
+        .navbar .navbar-brand {
+            color: #efe5ff;
+            padding-left: 0;
+            padding-right: 50px;
+            font-size: 24px;
+        }
+        .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+            color: #fff;
+        }
+        .navbar .navbar-brand i {
+            font-size: 25px;
+            margin-right: 5px;
+        }
+        .search-box {
+            position: relative;
+        }
+        .search-box input {
+            padding-right: 35px;
+            min-height: 38px;
+            border: none;
+            background: #faf7fd;
+            border-radius: 3px !important;
+        }
+        .search-box input:focus {
+            background: #fff;
+            box-shadow: none;
+        }
+        .search-box .input-group-addon {
+            min-width: 35px;
+            border: none;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            z-index: 9;
+            padding: 10px 7px;
+            height: 100%;
+        }
+        .search-box i {
+            color: #a0a5b1;
+            font-size: 19px;
+        }
+        .navbar .nav-item i {
+            font-size: 18px;
+        }
+        .navbar .nav-item span {
+            position: relative;
+            top: 3px;
+        }
+        .navbar .navbar-nav > a {
+            color: #efe5ff;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        .navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
+            color: #fff;
+            text-shadow: 0 0 4px rgba(255,255,255,0.3);
+        }
+        .navbar .navbar-nav > a > i {
+            display: block;
+            text-align: center;
+        }
+        .navbar .dropdown-item i {
+            font-size: 16px;
+            min-width: 22px;
+        }
+        .navbar .dropdown-item .material-icons {
+            font-size: 21px;
+            line-height: 16px;
+            vertical-align: middle;
+            margin-top: -2px;
+        }
+        .navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
+            color: #fff;
+            background: none !important;
+        }
+        .navbar .dropdown-menu {
+            border-radius: 1px;
+            border-color: #e5e5e5;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+        .navbar .dropdown-menu a {
+            color: #777 !important;
+            padding: 8px 20px;
+            line-height: normal;
+            font-size: 15px;
+        }
+        .navbar .dropdown-menu a:hover, .navbar .dropdown-menu a:focus {
+            color: #333 !important;
+            background: transparent !important;
+        }
+        .navbar .navbar-nav .active a, .navbar .navbar-nav .active a:hover, .navbar .navbar-nav .active a:focus {
+            color: #fff;
+            text-shadow: 0 0 4px rgba(255,255,255,0.2);
+            background: transparent !important;
+        }
+        .navbar .navbar-nav .user-action {
+            padding: 9px 15px;
+            font-size: 15px;
+        }
+        .navbar .navbar-toggle {
+            border-color: #fff;
+        }
+        .navbar .navbar-toggle .icon-bar {
+            background: #fff;
+        }
+        .navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
+            background: transparent;
+        }
+        .navbar .navbar-nav .open .dropdown-menu {
+            background: #faf7fd;
+            border-radius: 1px;
+            border-color: #faf7fd;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+        .navbar .divider {
+            background-color: #e9ecef !important;
+        }
+        @media (min-width: 1200px){
+            .form-inline .input-group {
+                width: 350px;
+                margin-left: 30px;
+            }
+        }
+        @media (max-width: 1199px){
+            .navbar .navbar-nav > a > i {
+                display: inline-block;
+                text-align: left;
+                min-width: 30px;
+                position: relative;
+                top: 4px;
+            }
+            .navbar .navbar-collapse {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+            .navbar .navbar-form {
+                border: none;
+                display: block;
+                margin: 10px 0;
+                padding: 0;
+            }
+            .navbar .navbar-nav {
+                margin: 8px 0;
+            }
+            .navbar .navbar-toggle {
+                margin-right: 0;
+            }
+            .input-group {
+                width: 100%;
+            }
+        }
+    </style>
+
 </head>
-<body>
-	<p>Welcome Home</p>
-	<form action="/logout" method="get">
-	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Logout</button>
-	</form>
+<body onload="getAllStudentInfo()">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+    <a href="#" class="navbar-brand"><i class="fas fa-fire" style="margin-left: 35px;"></i></a>
+
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+
+        <form class="navbar-form form-inline">
+            <div class="input-group search-box">
+
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search"
+                           placeholder="Search here..." style="left: 600px;" aria-label="Search" id="searchId">
+
+                </form>
+                <span class="input-group-addon"
+                      style="border-left-width: medium;border-left-style: solid;border-right-width: medium;border-right-style: solid;left: 900px;"><i
+                        class="material-icons">&#xe8b6;</i></span>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<script type="text/javascript">
+    function getAllStudentInfo() {
+        jQuery
+            .ajax({
+                type : 'GET',
+                cache : true,
+                async : false,
+                contentType : 'application/json',
+                dataType : 'json',
+                url : location.origin + "/all",
+                success : function(data) {
+                    $('#studentTBLId')
+                        .html(
+                            '<table class="table  table-bordered "  id="allPat" ></table>');
+                    dataTable = $('#allPat')
+                        .dataTable(
+                            {
+                                "data" : data,
+                                "bLengthChange" : false,
+                                "bFilter" : true,
+                                "bInfo" : false,
+                                "scrollCollapse" : true,
+                                "paging" : false,
+                                'iDisplayLength' : 3,
+                                "dom" : 'lrtip',
+                                "aoColumns" : [ {
+                                    "mDataProp" : "firstName",
+                                    "title" : "First Name",
+                                    "width" : "15%"
+                                }, {
+                                    "mDataProp" : "lastName",
+                                    "title" : "Last Name",
+                                    "width" : "15%"
+                                }, {
+                                    "mDataProp" : "email",
+                                    "title" : "Email",
+                                    "width" : "15%"
+                                },
+
+                                    {
+                                        "mDataProp" : "age",
+                                        "title" : "Age",
+                                        "width" : "15%"
+                                    },
+
+                                    {
+                                        "mDataProp" : "contact",
+                                        "title" : "Contact Number",
+                                        "width" : "15%"
+                                    },
+
+                                    {
+                                        "mDataProp" : "isActive",
+                                        "title" : "Account Activated?",
+                                        "width" : "2%"
+                                    } ]
+                            });
+
+                }
+                //)
+            });
+        $("#searchId").keyup(function() {
+            dataTable.fnFilter(this.value);
+            $("#allPat_filter").hide();
+        });
+
+    }
+
+</script>
+
+<br/>
+<div class="container">
+    <h3>Students Data</h3>
+    <input type="hidden" id="hiddenId"/>
+    <div id="studentTBLId"></div>
+</div>
+
+<form action="/logout" method="get">
+    <button type="submit" class="btn form-control btn-primary rounded submit px-3">Logout</button>
+</form>
 </body>
 </html>

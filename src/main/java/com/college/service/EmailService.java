@@ -1,4 +1,4 @@
-package com.College.service;
+package com.college.service;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,7 +7,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.College.entity.User;
+import com.college.entity.User;
 
 @Service
 public class EmailService {

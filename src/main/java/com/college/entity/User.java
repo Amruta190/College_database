@@ -1,4 +1,4 @@
-package com.College.entity;
+package com.college.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +20,7 @@ public class User {
 	private String email;
 	private String password;
 	private Boolean isActive;
+//	private Boolean isAdmin;
 	private String token;
 	private String token2;
 	private String token3;
@@ -72,6 +73,14 @@ public class User {
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
+//	public Boolean getIsAdmin()
+//	{
+//		return isAdmin;
+//	}
+//	public void setAdmin(Boolean admin)
+//	{
+//		isAdmin = admin;
+//	}
 	public String getToken() {
 		return token;
 	}

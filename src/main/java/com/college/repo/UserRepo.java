@@ -1,4 +1,4 @@
-package com.College.repo;
+package com.college.repo;
 
 import java.util.Optional;
 
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.College.entity.User;
+import com.college.entity.User;
 
 
 @Repository

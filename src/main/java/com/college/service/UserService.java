@@ -1,4 +1,4 @@
-package com.College.service;
+package com.college.service;
 
 import java.util.Optional;
 
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.College.entity.User;
-import com.College.repo.UserRepo;
+import com.college.entity.User;
+import com.college.repo.UserRepo;
 
 @Service
 public class UserService {
